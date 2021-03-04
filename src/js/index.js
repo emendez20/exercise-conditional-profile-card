@@ -33,17 +33,37 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
-          </ul>
-        </div>
-    `;
+          <h1>${variables.name == null ? "Nombre" : variables.name} ${
+    variables.lastname == null ? "Apellido" : variables.lastname
+  }</h1>
+          <h2>${variables.role == null ? "Role" : variables.role}</h2>
+          <h3>${variables.city == null ? "City" : variables.role}, ${
+    variables.country == null ? "Country" : variables.country
+  }</h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href=${
+              variables.twitter == null
+                ? "https://twitter.com/"
+                : `https://twitter.com/${variables.twitter}`
+            }><i class="fa fa-twitter"></i></a></li>
+            <li><a href=${
+              variables.github == null
+                ? "https://github.com/"
+                : `https://github.com/${variables.github}`
+            }> <i class="fa fa-github"></i></a></li>
+            <li><a href=${
+              variables.linkedin == null
+                ? "https://linkedin.com/"
+                : `https://linkedin.com/${variables.linkedin}`
+            }> <i class="fa fa-linkedin"></i></a></li>
+            <li><a href=${
+              variables.instagram == null
+                ? "https://instagram.com/"
+                : `https://instagram.com/${variables.instagram}`
+            }> <i class="fa fa-instagram"></i></a></li>
+          </ul >
+        </div >
+        `;
 }
 
 /**
@@ -61,7 +81,7 @@ window.onload = function() {
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: "emendez20",
     linkedin: null,
     instagram: null,
     name: null,
